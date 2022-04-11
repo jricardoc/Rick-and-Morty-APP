@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Alert, FlatList, Pressable, View } from "react-native";
+import { Alert, FlatList, View } from "react-native";
 import { ResponseProps } from "../../@types/DTOS/charactersDTO";
 import Icon from "../../components/Icon";
 import Separator from "../../components/Separator";
 import { getCharacters } from "../../services/resources/characters";
+import CharactersCard from "./components/CharactersCard";
 
 import {
   Container,
@@ -18,7 +19,7 @@ import {
 const Home: React.FC = () => {
   const [selectedMenu, setSelectedMenu] = useState<number>(1);
   const [characters, setCharacters] = useState<ResponseProps[]>([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
 
   const menuOptions = [
     {
@@ -46,6 +47,10 @@ const Home: React.FC = () => {
     }
   }, []);
 
+  const renderItem = ({ item }: ResponseProps) => {
+    return <CharactersCard item={item} />;
+  };
+
   useEffect(() => {
     getData();
   }, [getData]);
@@ -63,7 +68,7 @@ const Home: React.FC = () => {
         <Separator height={20} />
         <MenuOptionsContainer>
           {menuOptions.map((element) => (
-            <>
+            <View key={element.id}>
               <MenuOptionPressable
                 isPressed={selectedMenu === element.id}
                 onPress={() => setSelectedMenu(element.id)}
@@ -77,7 +82,7 @@ const Home: React.FC = () => {
                 </MenuOptionsLabel>
               </MenuOptionPressable>
               <Separator width={5} />
-            </>
+            </View>
           ))}
         </MenuOptionsContainer>
 
@@ -87,6 +92,7 @@ const Home: React.FC = () => {
           data={characters}
           renderItem={renderItem}
           keyExtractor={(item) => `${item.id}`}
+          ItemSeparatorComponent={() => <Separator height={20} />}
         />
       </Content>
     </Container>
