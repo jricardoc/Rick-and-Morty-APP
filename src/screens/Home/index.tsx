@@ -16,7 +16,7 @@ import {
   MenuOptionPressable,
 } from "./styles";
 
-const Home: React.FC = () => {
+const Home = () => {
   const [selectedMenu, setSelectedMenu] = useState<number>(1);
   const [characters, setCharacters] = useState<ResponseProps[]>([]);
   const [page, setPage] = useState<number>(1);
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
         <Separator height={20} />
         <MenuOptionsContainer>
           {menuOptions.map((element) => (
-            <View key={element.id}>
+            <View key={element.id} style={{marginRight: 10}}>
               <MenuOptionPressable
                 isPressed={selectedMenu === element.id}
                 onPress={() => setSelectedMenu(element.id)}
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
                   {element.label}
                 </MenuOptionsLabel>
               </MenuOptionPressable>
-              <Separator width={5} />
+              <Separator width={50} />
             </View>
           ))}
         </MenuOptionsContainer>
@@ -89,7 +89,7 @@ const Home: React.FC = () => {
         <Separator height={20} />
 
         <FlatList
-          data={characters}
+          data={characters || []}
           renderItem={renderItem}
           keyExtractor={(item) => `${item.id}`}
           ItemSeparatorComponent={() => <Separator height={20} />}

@@ -8,6 +8,7 @@ export const Icon = ({
   color,
   size = 20,
   style,
+  bold = false,
 }: Omit<IconProps, "source">) => {
   if (color)
     return (
@@ -24,6 +25,7 @@ export const Icon = ({
       size={size}
       source={icons[icon]}
       style={style}
+      bold={bold}
       resizeMode="contain"
     />
   );

@@ -6,4 +6,6 @@ export const Container = styled.Image<Partial<IconProps>>`
   min-width: ${({ size }) => size}px;
   max-height: ${({ size }) => size}px;
   max-width: ${({ size }) => size}px;
+
+  font-weight: ${({ bold }) => bold ? "bold" : "normal"};
 `;
