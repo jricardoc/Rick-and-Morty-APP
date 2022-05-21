@@ -8,7 +8,6 @@ interface IsPressed {
 
 export const Container = styled(SafeAreaView)`
   flex: 1;
-  width: 100%;
 `;
 
 export const Content = styled.View`
@@ -29,6 +28,7 @@ export const Logo = styled.Image`
 
 export const MenuOptionsContainer = styled.View`
   flex-direction: row;
+
 `;
 
 export const MenuOptionsLabel = styled(Text)<IsPressed>`
@@ -40,4 +40,6 @@ export const MenuOptionPressable = styled.Pressable<IsPressed>`
   background-color: ${({ isPressed }) => (isPressed ? "red" : "white")};
   border-radius: 14px;
   padding: 8px 15px;
+  margin-right: 10px;
+
 `;

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import { ResponseProps } from "../../../../@types/DTOS/charactersDTO";
 import Icon from "../../../../components/Icon";
@@ -16,8 +17,19 @@ import {
 } from "./styles";
 
 const CharactersCard = ({ item }: ResponseProps) => {
+
+  const { navigate } = useNavigation();
+
+  const handleNavigateContainer = (item: ResponseProps) => () => {
+    navigate('Internal', {
+      item
+    })
+  }
+    
+  
+
   return (
-    <Container>
+    <Container onPress={handleNavigateContainer(item)}>
       <CharacterImage source={{ uri: item?.image }} />
       <CharacterInfo>
         <View>
