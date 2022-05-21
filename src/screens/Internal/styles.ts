@@ -4,21 +4,23 @@ import Text from '../../components/Text';
 
 export const Container = styled(SafeAreaView)`
     flex: 1;
+    justify-content: space-between;
+    padding-bottom: 20px;
 `;
+
+export const Content = styled.View`
+    flex: 1;
+    justify-content: space-between;
+    margin: 0 20px;
+`;
+
 export const CharacterImage = styled.Image`
     width: 100%;
     height: 45%;
 `;
 
 export const CharacterInfo = styled.View`
-    padding: 20px 20px 0 20px;
 `;
 
-export const DescriptionCharacter = styled(Text)``;
-
-export const ButtonBack = styled.Button`
-    height: 30px;
-    width: 30px;
-    color: red;
-
+export const DescriptionCharacter = styled(Text)`
 `;

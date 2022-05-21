@@ -39,7 +39,6 @@ const Home = () => {
   const getData = useCallback(async () => {
     try {
       const { results } = await getCharacters(page);
-      console.log(results);
       setCharacters(results);
       setPage((oldState) => oldState + 1);
     } catch (error) {
@@ -66,25 +65,24 @@ const Home = () => {
           <Icon icon="search" size={25} color="black" />
         </Header>
         <Separator height={20} />
-        <MenuOptionsContainer>
-          {menuOptions.map((element) => (
-            <View key={element.id} style={{marginRight: 10}}>
-              <MenuOptionPressable
-                isPressed={selectedMenu === element.id}
-                onPress={() => setSelectedMenu(element.id)}
-              >
-                <MenuOptionsLabel
+          <MenuOptionsContainer>
+            {menuOptions.map((element) => (
+              <View key={element.id}>
+                <MenuOptionPressable
                   isPressed={selectedMenu === element.id}
-                  color="white"
-                  size={16}
+                  onPress={() => setSelectedMenu(element.id)}
                 >
-                  {element.label}
-                </MenuOptionsLabel>
-              </MenuOptionPressable>
-              <Separator width={50} />
-            </View>
-          ))}
-        </MenuOptionsContainer>
+                  <MenuOptionsLabel
+                    isPressed={selectedMenu === element.id}
+                    color="white"
+                    size={16}
+                  >
+                    {element.label}
+                  </MenuOptionsLabel>
+                </MenuOptionPressable>
+              </View>
+            ))}
+          </MenuOptionsContainer>
 
         <Separator height={20} />
 

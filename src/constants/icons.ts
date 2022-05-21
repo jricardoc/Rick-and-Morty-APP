@@ -1,4 +1,4 @@
-import search from "../assets/icons/search/Vector.png";
+import search from "../assets/icons/Search/Vector.png";
 import chevronRight from "../assets/icons/chevron-right/Vector.png";
 import uploadIcon from "../assets/icons/upload-icon/Vector.png"
 

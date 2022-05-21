@@ -28,6 +28,7 @@ export const Logo = styled.Image`
 
 export const MenuOptionsContainer = styled.View`
   flex-direction: row;
+
 `;
 
 export const MenuOptionsLabel = styled(Text)<IsPressed>`
@@ -39,4 +40,6 @@ export const MenuOptionPressable = styled.Pressable<IsPressed>`
   background-color: ${({ isPressed }) => (isPressed ? "red" : "white")};
   border-radius: 14px;
   padding: 8px 15px;
+  margin-right: 10px;
+
 `;
